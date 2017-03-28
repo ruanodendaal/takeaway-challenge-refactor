@@ -6,10 +6,6 @@ class Menu
 
   def initialize(dishes)
     @dishes = dishes
-    # {'Chicken' => 12.50,
-    #            'Pizza' => 10,
-    #            'Pasta'=> 8.99,
-    #            'Steak'=> 25.99}
   end
 
   # let user choose menu, capture input and send to #load_menu
@@ -21,11 +17,11 @@ class Menu
   #load_menu choice from csv
 
   def contain_item?(dish)
-    self.dishes.include?(dish) ? true : "#{dish} not available in menu"
+    !dishes[dish].nil?
   end
 
   def dish_price(dish)
-    self.dishes[dish]
+    dishes[dish]
   end
 
 

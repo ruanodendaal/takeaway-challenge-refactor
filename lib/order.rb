@@ -1,32 +1,38 @@
-# place a specific order
-# fulfil_order by confirming to customer
+# adding specific items to basket
+
 require_relative 'menu'
 
 class Order
 
-  attr_reader :total, :menu, :items
+  attr_reader :dishes, :menu
 
   def initialize(menu)
     @menu = menu
-    @items = Hash.new(0)
+    @dishes = {}
   end
 
   # add dishes if they already in hash
-  def add(dish, quantity=1)
-    @items[dish] += quantity
-    dish
+  def add(dish, quantity)
+    raise NoItemError, "#{dish.capitalize} not on the menu" unless menu.contain_item?(dish)
+    dishes[dish] = quantity
   end
 
   def total_price
-    total =
-    @items.inject(0) { |acc, item| acc + (self.menu.dishes[item.first] * item.last) }
-    total.round(2)
-    # @items.sum{ |dish, quantity| quantity * menu.dishes[dish] }
+    item_totals.inject(:+).round(2)
   end
 
 
   private
 
-  attr_writer :items
+  attr_writer :menu
+
+  def item_totals
+    dishes.map do |dish, quantity|
+      menu.dish_price(dish) * quantity
+    end
+  end
 
 end
+
+
+class NoItemError < StandardError; end

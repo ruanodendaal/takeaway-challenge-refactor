@@ -1,0 +1,28 @@
+#! /usr/bin/env ruby
+
+require './lib/takeaway'
+require './lib/menu'
+
+menu_list = {
+  "chicken" => 12.50,
+  "pizza" => 10.00,
+  "pasta" => 8.99,
+  "steak" => 25.99
+}
+
+menu = Menu.new(menu_list)
+selection = {}
+
+menu.print_menu
+loop do
+  puts "What would you like to order? 'done' if finished)"
+  dish = gets.strip
+  break if dish == "done"
+  print "How many? "
+  quantity = gets.to_i
+  selection[dish] = quantity
+  p selection
+end
+
+
+TakeAway.new(menu: menu).place_order(selection)
