@@ -22,6 +22,10 @@ class TakeAway
   def place_order(dishes)
     add_dishes(dishes)
     sms.send_sms
+    return "Your order comes to: £#{order.total_price}"
+  end
+
+  def show_price
     order.total_price
   end
 
@@ -37,7 +41,6 @@ class TakeAway
   def add_dishes(dishes)
     dishes.each do |dish, quantity|
       order.add(dish, quantity)
-      # "#{dish} added to your basket"
     end
   end
 

@@ -10,8 +10,8 @@ class SMS
     ENV["TWILIO_AUTH_TOKEN"]
     )
 
-    # 1hr after order
-    delivery_time = (Time.now + 60*60).strftime('%H:%M')
+    # 30mins after order
+    delivery_time = (Time.now + 60*30).strftime('%H:%M')
     message = "Thank you! Your order was placed and will be delivered before #{delivery_time}"
 
     client.account.messages.create(

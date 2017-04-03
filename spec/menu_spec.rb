@@ -23,7 +23,7 @@ describe Menu do
 
   describe '#print_menu' do
     it 'prints the menu with prices' do
-      printed_menu = "Chicken £12.50, Pizza £10.00, Pasta £8.99, Steak £25.99"
+      printed_menu = "Chicken £12.50\nPizza £10.00\nPasta £8.99\nSteak £25.99"
       expect(menu.print_menu).to eq printed_menu
     end
   end

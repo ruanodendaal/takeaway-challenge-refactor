@@ -12,7 +12,7 @@ class Menu
   def print_menu
     dishes.map do |item, price|
       "%s £%.2f" % [item.to_s.capitalize, price]
-    end.join(", ")
+    end.join("\n")
   end
   #load_menu choice from csv
 

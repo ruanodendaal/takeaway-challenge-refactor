@@ -31,7 +31,7 @@ describe TakeAway do
 
     it 'knows the order total' do
       total = takeaway.place_order(dishes)
-      expect(total).to eq 18.99
+      expect(total).to eq "Your order comes to: £18.99"
     end
   end
 

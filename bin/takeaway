@@ -13,16 +13,24 @@ menu_list = {
 menu = Menu.new(menu_list)
 selection = {}
 
-menu.print_menu
+
+line_width = 50
+puts "=============================".center(line_width)
+puts "Hello and welcome to Shorty's".center(line_width)
+puts "Menu....short".center(line_width)
+puts "Delivery time....even shorter".center(line_width)
+puts "=============================".center(line_width)
+puts
+puts menu.print_menu
+
 loop do
-  puts "What would you like to order? 'done' if finished)"
+  puts
+  puts "What would you like to order? (or 'finished' to order)"
   dish = gets.strip
-  break if dish == "done"
+  break if dish == "finished"
   print "How many? "
   quantity = gets.to_i
   selection[dish] = quantity
-  p selection
 end
 
-
-TakeAway.new(menu: menu).place_order(selection)
+puts TakeAway.new(menu: menu).place_order(selection)
