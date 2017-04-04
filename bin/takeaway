@@ -25,9 +25,9 @@ puts menu.print_menu
 
 loop do
   puts
-  puts "What would you like to order? (or 'finished' to order)"
-  dish = gets.strip
-  break if dish == "finished"
+  puts "What would you like to order? (or 'done' to order)"
+  dish = gets.strip.downcase
+  break if dish == "done"
   print "How many? "
   quantity = gets.to_i
   selection[dish] = quantity

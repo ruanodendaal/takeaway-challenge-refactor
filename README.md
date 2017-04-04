@@ -48,44 +48,69 @@ I would like to receive a text such as "Thank you! Your order was placed and wil
 So that I am reassured that my order will be delivered on time
 ```
 
-* Hints on functionality to implement:
-  * Ensure you have a list of dishes with prices
-  * Place the order by giving the list of dishes, their quantities and a number that should be the exact total. If the sum is not correct the method should raise an error, otherwise the customer is sent a text saying that the order was placed successfully and that it will be delivered 1 hour from now, e.g. "Thank you! Your order was placed and will be delivered before 18:52".
-  * The text sending functionality should be implemented using Twilio API. You'll need to register for it. It’s free.
-  * Use the twilio-ruby gem to access the API
-  * Use the Gemfile to manage your gems
-  * Make sure that your Takeaway is thoroughly tested and that you use mocks and/or stubs, as necessary to not to send texts when your tests are run
-  * However, if your Takeaway is loaded into IRB and the order is placed, the text should actually be sent
-  * Note that you can only send texts in the same country as you have your account. I.e. if you have a UK account you can only send to UK numbers.
 
-* Advanced! (have a go if you're feeling adventurous):
-  * Implement the ability to place orders via text message.
+## Approach
 
-* A free account on Twilio will only allow you to send texts to "verified" numbers. Use your mobile phone number, don't worry about the customer's mobile phone.
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+- After reviewing the user stories I thought through my class design and created the table below.
+
+- Now onto the setup:
+  * I began with Sinatra set up.
+  * Initialzing RSpec.
+  * Creating the folder structure require.
+- Following this I began writing my feature and unit tests to fulfil the first user story.
+- Moving onto the second user story I used a test-driven approach to build the core game logic.
+- Once this was done I refactored the controller and view pages to enable a user to play rock-paper-scissors against the computer.
+- Final step I decided to change the user interface so I refactored the design to use the script `bin/takeaway`.
+
+## TODO
+
+### My class design approach
+
+| **Objects** | **Messages**        |
+|-------------|---------------------|
+| TakeAway    |                 |
+|             |   |
+|             |             |
+|             |  |
+| Order       |         |
+|             | ?           |
+| Menu     | ?             |
+
+## How to run
+
+- Clone this repo `git clone [url]`.
+- Navigate to the takeaway-challenge folder `cd takeaway-challenge`.
+- Run `gem install bundle` if bundler isn't installed.
+- Run `bundle`
+- On your terminal, run `ruby bin/takeaway` to run the script.
+- Place your order.
+  * caveat sms's only get sent to me at this time.
+
+## Screenshots
+
+Welcome screen invites you order:
+
+![Screenshot](http://imgur.com/FXfFeHI.png)
+
+Choose your takeaway & number of:
+
+![Screenshot](http://i.imgur.com/stIi5AK.png)
+
+Type `done` when ready to place your order:
+
+![Screenshot](http://i.imgur.com/xRAHCPu.png)
+
+Once ordered a sms is sent to your (my) phone:
+
+![Screenshot](http://i.imgur.com/gYvKk7v.png?1)
+
+## Tools/Languages
+
+- Ruby v 2.3.1
+- rspec
+- envyable
 
 
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance will make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on Test Coverage
-------------------
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
-```
-$ coveralls report
-```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
-Build Badge Example
-------------------
-
-[![Build Status](https://travis-ci.org/makersacademy/takeaway-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/takeaway-challenge)
-[![Coverage Status](https://coveralls.io/repos/makersacademy/takeaway-challenge/badge.png)](https://coveralls.io/r/makersacademy/takeaway-challenge)
+### TODO
+## Future enhancements...
+- ability to change sms number to send txt to
