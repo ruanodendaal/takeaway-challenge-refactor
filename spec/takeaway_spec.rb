@@ -34,6 +34,4 @@ describe TakeAway do
       expect(total).to eq "Your order comes to: £18.99"
     end
   end
-
-
 end

@@ -25,11 +25,6 @@ class TakeAway
     return "Your order comes to: £#{order.total_price}"
   end
 
-  def show_price
-    order.total_price
-  end
-
-
   private
   attr_reader :menu, :order, :sms
 
