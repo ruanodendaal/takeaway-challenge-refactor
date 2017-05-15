@@ -54,9 +54,8 @@ So that I am reassured that my order will be delivered on time
 - After reviewing the user stories I thought through my class design and created the table below.
 
 - Now onto the setup:
-  * I began with Sinatra set up.
   * Initialzing RSpec.
-  * Creating the folder structure require.
+  * Creating the folder structure required.
 - Following this I began writing my feature and unit tests to fulfil the first user story.
 - Moving onto the second user story I used a test-driven approach to build the core game logic.
 - Once this was done I refactored the controller and view pages to enable a user to play rock-paper-scissors against the computer.
@@ -66,15 +65,17 @@ So that I am reassured that my order will be delivered on time
 
 ### My class design approach
 
-| **Objects** | **Messages**        |
-|-------------|---------------------|
-| TakeAway    |                 |
-|             |   |
-|             |             |
-|             |  |
-| Order       |         |
-|             | ?           |
-| Menu     | ?             |
+| **Objects** | **Messages**      |
+|-------------|-------------------|
+| TakeAway    | show_menu         |
+|             |  place_order      |
+|             |   checkout        |
+|             | send_confirmation |
+| Order       | add               |
+|             | total_price       |
+| Menu        | print_menu        |
+|             | contain_item?     |
+|             | dish_price        |
 
 ## How to run
 
